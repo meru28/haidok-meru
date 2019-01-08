@@ -58,7 +58,7 @@ class LandingPage extends Component {
         <h1>Ini Landing Page Coy</h1>
         <h1>Ini Landing Page Coy</h1>
         <h1>Ini Landing Page Coy</h1>
-        <h1>Ini Landing Page Coy</h1>
+        <h1>Ini Landing page gaul</h1>
         <h1>Ini Landing Page Coy</h1>
         <h1>Ini Landing Page Coy</h1>
         <h1>Ini Landing Page Coy</h1>
