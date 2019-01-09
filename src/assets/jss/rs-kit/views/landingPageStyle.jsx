@@ -1,6 +1,16 @@
-import { container, title, main, mainRaised } from "assets/jss/rs-kit.jsx";
+import headerLinksStyle from "assets/jss/rs-kit/components/headerLinksStyle.jsx";
+import {
+  container,
+  title,
+  main,
+  mainRaised,
+  mrAuto,
+  mlAuto
+} from "assets/jss/rs-kit.jsx";
+import { list } from "postcss";
 
-const landingPageStyle = {
+const landingPageStyle = theme => ({
+  ...headerLinksStyle(theme),
   container: {
     color: "#FFFFFF",
     ...container,
@@ -42,7 +52,8 @@ const landingPageStyle = {
     padding: "0px",
     width: "auto"
   },
-  list: {
+  list2: {
+    ...list,
     marginBottom: "0",
     padding: "0",
     marginTop: "0"
@@ -61,7 +72,12 @@ const landingPageStyle = {
     height: "18px",
     top: "3px",
     position: "relative"
-  }
-};
+  },
+  textCenter: {
+    textAlign: "center"
+  },
+  mlAuto,
+  mrAuto
+});
 
 export default landingPageStyle;

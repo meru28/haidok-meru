@@ -88,7 +88,7 @@ function HeaderLinks({ ...props }) {
   const { classes, dropdownHoverColor } = props;
   return (
     <List className={classes.list + " " + classes.mlAuto}>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           navDropdown
@@ -117,8 +117,8 @@ function HeaderLinks({ ...props }) {
             </a>
           ]}
         />
-      </ListItem>
-      <ListItem className={classes.listItem}>
+      </ListItem> */}
+      {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           navDropdown
@@ -188,18 +188,18 @@ function HeaderLinks({ ...props }) {
             </Link>
           ]}
         />
-      </ListItem>
+      </ListItem> */}
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           navDropdown
           hoverColor={dropdownHoverColor}
-          buttonText="Artikel Kesehatan"
+          buttonText="Masuk / Daftar"
           buttonProps={{
             className: classes.navLink,
-            color: "transparent"
+            color: "success"
           }}
-          buttonIcon={ViewCarousel}
+          // buttonIcon={ViewCarousel}
           dropdownList={[
             <Link to="/about-us" className={classes.dropdownLink}>
               <AccountBalance className={classes.dropdownIcons} /> About Us

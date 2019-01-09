@@ -1,7 +1,7 @@
 // ##############################
 // // // Header styles
 // #############################
-
+import headerLinksStyle from "assets/jss/rs-kit/components/headerLinksStyle.jsx";
 import {
   container,
   defaultFont,
@@ -13,10 +13,12 @@ import {
   roseColor,
   transition,
   boxShadow,
-  drawerWidth
+  drawerWidth,
+  mrAuto
 } from "assets/jss/rs-kit.jsx";
 
 const headerStyle = theme => ({
+  ...headerLinksStyle(theme),
   appBar: {
     display: "flex",
     border: "0",
@@ -25,7 +27,7 @@ const headerStyle = theme => ({
     marginBottom: "20px",
     color: "#555",
     width: "100%",
-    height: "55px",
+    height: "50px",
     backgroundColor: "#fff",
     boxShadow:
       "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
@@ -34,6 +36,46 @@ const headerStyle = theme => ({
     flexFlow: "row nowrap",
     justifyContent: "flex-start",
     position: "relative"
+  },
+  pageHeader: {
+    position: "relative",
+    height: "100vh",
+    maxHeight: "1600px",
+    backgroundPosition: "50%",
+    backgroundSize: "cover",
+    margin: "0",
+    padding: "0",
+    border: "0",
+    display: "flex",
+    WebkitBoxAlign: "center",
+    MsFlexAlign: "center",
+    alignItems: "center",
+    "&:before": {
+      background: "rgba(0, 0, 0, 0.5)"
+    },
+    "&:after,&:before": {
+      position: "absolute",
+      zIndex: "1",
+      width: "100%",
+      height: "100%",
+      display: "block",
+      left: "0",
+      top: "0",
+      content: "''"
+    }
+  },
+  conatinerHeader2: {
+    ...container,
+    zIndex: "2",
+    position: "relative",
+    "& h1, & h4, & h6": {
+      color: "#FFFFFF"
+    },
+    paddingTop: "25vh"
+  },
+  mrAuto,
+  card: {
+    marginTop: "60px"
   },
   absolute: {
     position: "absolute",
