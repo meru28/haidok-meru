@@ -66,6 +66,11 @@ const parallaxStyle = {
       content: "''"
     }
   },
+  noColor: {
+    "&:before": {
+      background: "rgba(0, 0, 0, 0.5)"
+    }
+  },
   infoColor: {
     "&:before": {
       background: "rgba(0, 0, 0, 0.5)"

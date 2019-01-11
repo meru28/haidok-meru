@@ -18,6 +18,33 @@ const landingPageStyle = theme => ({
     ...container,
     zIndex: "2"
   },
+
+  navbar_inner_overlay: {
+    left: "0",
+    height: "100%",
+    width: "100%",
+    zIndex: "200",
+    display: "block"
+  },
+  navbar_inner_overlay_active: {
+    display: "block",
+    opacity: ".3",
+    zIndex: "200"
+  },
+
+  overlay: {
+    height: "100%",
+    width: "100%",
+    zIndex: "200",
+    top: "0",
+    left: "0",
+    display: "none",
+    transition: "0.5s"
+  },
+  ovactive: {
+    display: "block",
+    visibility: "visible"
+  },
   title: {
     ...title,
     display: "inline",

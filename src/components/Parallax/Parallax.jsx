@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -9,7 +9,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import parallaxStyle from "assets/jss/rs-kit/components/parallaxStyle.jsx";
 
-class Parallax extends React.Component {
+class Parallax extends Component {
   constructor(props) {
     super(props);
     this.parallax = React.createRef();
@@ -85,7 +85,8 @@ Parallax.propTypes = {
     "info",
     "success",
     "warning",
-    "danger"
+    "danger",
+    "no"
   ]),
   children: PropTypes.node,
   style: PropTypes.string,
