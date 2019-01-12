@@ -20,7 +20,8 @@ import CardBody from "components/Card/CardBody.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
 
 // bagian dalam halaman ini
-import SectionProduct from "./Bagian/SectionProduct.jsx";
+import BagianDeskripsi from "./Bagian/BagianDeskripsi.jsx";
+import BagianFitur from "./Bagian/BagianFitur.jsx";
 
 import Typing, {
   Backspace,
@@ -70,137 +71,142 @@ class LandingPage extends Component {
     //deklarasi props classes dan ditampung di rest
     const { classes, ...rest } = this.props;
     return (
-      <div>
-        <Header
-          color="white"
-          routes={dasboardRoutes}
-          namaBrand="haidok"
-          links={
-            //ambil style dari classname collapse dari file headerlinks style
-            <div className={classes.collapse}>
-              <List className={classes.list + " " + classes.mlAuto}>
-                <ListItem className={classes.listItem}>
-                  <Button
-                    href="javascript:void(0)"
-                    className={classes.navLink}
-                    // onClick={e => e.preventDefault()}
-                    color="transparent"
-                    onClick={this.mouseOver}
-                    // onMouseOut={console.log("hover out")}
+      <div className="cd-section" {...rest}>
+        <div className={classes.sectionBlank} id="blanksection" />
+        <div>
+          <Header
+            color="transparent"
+            routes={dasboardRoutes}
+            namaBrand="haidok"
+            links={
+              //ambil style dari classname collapse dari file headerlinks style
+              <div className={classes.collapse}>
+                <List className={classes.list + " " + classes.mlAuto}>
+                  <ListItem className={classes.listItem}>
+                    <Button
+                      href="javascript:void(0)"
+                      className={classes.navLink}
+                      // onClick={e => e.preventDefault()}
+                      color="transparent"
+                      onClick={this.mouseOver}
+                      // onMouseOut={console.log("hover out")}
+                    >
+                      Info Kesehatan
+                    </Button>
+                  </ListItem>
+                  <ListItem className={classes.listItem}>
+                    <Button
+                      href="#meru"
+                      className={classes.navLink}
+                      onClick={e => e.preventDefault()}
+                      color="transparent"
+                    >
+                      Chat Dokter
+                    </Button>
+                  </ListItem>
+                  <ListItem className={classes.listItem}>
+                    <Button
+                      href="#meru"
+                      className={classes.navLink}
+                      onClick={e => e.preventDefault()}
+                      color="transparent"
+                    >
+                      Catatan Medis
+                    </Button>
+                  </ListItem>
+                  <ListItem className={classes.listItem}>
+                    <Button
+                      href="#meru"
+                      className={classes.navLink}
+                      onClick={e => e.preventDefault()}
+                      color="transparent"
+                    >
+                      Tanya Dukun
+                    </Button>
+                  </ListItem>
+                  <ListItem className={classes.listItem}>
+                    <Button
+                      href="#meru"
+                      className={classes.navLink}
+                      onClick={e => e.preventDefault()}
+                      color="success"
+                    >
+                      Masuk / Daftar
+                    </Button>
+                  </ListItem>
+                </List>
+                {/* <HeaderLinks dropdownHoverColor="info" /> */}
+              </div>
+            }
+            fixed
+            changeColorOnScroll={{
+              height: 300,
+              color: "white"
+            }}
+            {...rest}
+          />
+          <div
+            className={classNames({
+              navbar_inner_overlay_active: this.state.hover,
+              navbar_inner_overlay: false
+            })}
+            // style={{
+            //   display: this.state.hover
+            //     ? { display: "navbar_inner_overlay_active" }
+            //     : { display: "navbar_inner_overlay" }
+            // }}
+          >
+            <Parallax image={require("assets/img/bg-header.jpg")} filter="no">
+              <div className={classes.container}>
+                <GridContainer>
+                  <GridItem
+                    xs={12}
+                    sm={12}
+                    md={8}
+                    className={classNames(
+                      classes.mlAuto,
+                      classes.mrAuto,
+                      classes.textCenter
+                    )}
                   >
-                    Info Kesehatan
-                  </Button>
-                </ListItem>
-                <ListItem className={classes.listItem}>
-                  <Button
-                    href="#meru"
-                    className={classes.navLink}
-                    onClick={e => e.preventDefault()}
-                    color="transparent"
-                  >
-                    Chat Dokter
-                  </Button>
-                </ListItem>
-                <ListItem className={classes.listItem}>
-                  <Button
-                    href="#meru"
-                    className={classes.navLink}
-                    onClick={e => e.preventDefault()}
-                    color="transparent"
-                  >
-                    Catatan Medis
-                  </Button>
-                </ListItem>
-                <ListItem className={classes.listItem}>
-                  <Button
-                    href="#meru"
-                    className={classes.navLink}
-                    onClick={e => e.preventDefault()}
-                    color="transparent"
-                  >
-                    Tanya Dukun
-                  </Button>
-                </ListItem>
-                <ListItem className={classes.listItem}>
-                  <Button
-                    href="#meru"
-                    className={classes.navLink}
-                    onClick={e => e.preventDefault()}
-                    color="success"
-                  >
-                    Masuk / Daftar
-                  </Button>
-                </ListItem>
-              </List>
-              {/* <HeaderLinks dropdownHoverColor="info" /> */}
-            </div>
-          }
-          fixed
-          changeColorOnScroll={{
-            height: 300,
-            color: "white"
-          }}
-          {...rest}
-        />
-        <div
-          className={classNames({
-            navbar_inner_overlay_active: this.state.hover,
-            navbar_inner_overlay: false
-          })}
-          // style={{
-          //   display: this.state.hover
-          //     ? { display: "navbar_inner_overlay_active" }
-          //     : { display: "navbar_inner_overlay" }
-          // }}
-        >
-          <Parallax image={require("assets/img/bg-header.jpg")} filter="no">
-            <div className={classes.container}>
-              <GridContainer>
-                <GridItem
-                  xs={12}
-                  sm={6}
-                  md={6}
-                  className={classNames(
-                    classes.mlAuto,
-                    classes.mrAuto,
-                    classes.textCenter
-                  )}
-                >
-                  {/* <Typing
-                    speed={50}
-                    startDelay={1000}
-                    className={classes.title}
-                    onFinishedTyping={this.showFeatures}
-                    onStartedTyping={() => console.log("started typing")}
-                    // onBeforeType={text => console.log("onBeforeType", text)}
-                    // onAfterType={text => console.log("onAfterType", text)}
-                  >
-                    <Delay ms={1000} />
-                    <h1 className={classes.title}>
-                      Lagi nggak enak body?
-                      <Backspace count={10} delay={750} />
-                      {"enak badan?"}
-                    </h1>
-                  </Typing>
-                  {this.state.showFeatures && (
-                    <Typing loop speed={3}>
-                      <Delay ms={300} />
+                    <div>
+                      <Typing
+                        speed={50}
+                        startDelay={1000}
+                        className={classes.title}
+                        onFinishedTyping={this.showFeatures}
+                        onStartedTyping={() => console.log("started typing")}
+                        // onBeforeType={text => console.log("onBeforeType", text)}
+                        // onAfterType={text => console.log("onAfterType", text)}
+                      >
+                        <Delay ms={1000} />
+                        <h1 className={classes.title}>
+                          Kesehatan Anda prioritas kami
+                          <Backspace count={14} delay={750} />
+                          {"juga uang buat kami"}
+                        </h1>
+                      </Typing>
+                      {/* {this.state.showFeatures && (
+                        <Typing loop speed={3}>
+                          <Delay ms={300} /> */}
                       <h4>
                         <span>
                           Cari, buat janji dengan dokter, tes diagnostik, dan
                           layanan medis dari layar Anda
-                          <Reset count={1} delay={750} />
+                          {/* <Reset count={1} delay={750} />
                           atau Ingin pesan obat dan panggil ambulans?
-                          <Reset delay={2000} />
+                          <Reset delay={2000} /> */}
                         </span>
                       </h4>
-                    </Typing> */}
-                  )}
-                  {/* <h4>
+                      {/* </Typing>
+                      )} */}
+                    </div>
+
+                    {/* <h4>
                     Cari dan buat janji dengan dokter, tes diagnostik, dan
                     layanan medis dapat diraih dengan mudah
                   </h4> */}
-                  {/* <Button
+                    {/* <Button
                     color="danger"
                     size="lg"
                     href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
@@ -210,71 +216,73 @@ class LandingPage extends Component {
                     <i className="fas fa-play" />
                     Watch video
                   </Button> */}
-                  <Card raised className={classes.card}>
-                    <CardBody formHorizontal>
-                      <form>
-                        <GridContainer>
-                          <GridItem xs={12} sm={3} md={3}>
-                            <CustomInput
-                              id="name"
-                              inputProps={{
-                                placeholder: "Cari dokter"
-                              }}
-                              formControlProps={{
-                                fullWidth: true,
-                                className: classes.formControl
-                              }}
-                            />
-                          </GridItem>
-                          <GridItem xs={12} sm={3} md={3}>
-                            <CustomInput
-                              id="email"
-                              inputProps={{
-                                placeholder: "Klinik"
-                              }}
-                              formControlProps={{
-                                fullWidth: true,
-                                className: classes.formControl
-                              }}
-                            />
-                          </GridItem>
-                          <GridItem xs={12} sm={3} md={3}>
-                            <CustomInput
-                              id="password"
-                              inputProps={{
-                                placeholder: "Rumah sakit"
-                                // type: "password"
-                              }}
-                              formControlProps={{
-                                fullWidth: true,
-                                className: classes.formControl
-                              }}
-                            />
-                          </GridItem>
-                          <GridItem xs={12} sm={3} md={3}>
-                            <Button
-                              block
-                              color="twitter"
-                              className={classes.button}
-                            >
-                              Cari
-                            </Button>
-                          </GridItem>
-                        </GridContainer>
-                      </form>
-                    </CardBody>
-                  </Card>
-                </GridItem>
-              </GridContainer>
+                    <Card raised className={classes.card}>
+                      <CardBody formHorizontal>
+                        <form>
+                          <GridContainer>
+                            <GridItem xs={12} sm={3} md={3}>
+                              <CustomInput
+                                id="name"
+                                inputProps={{
+                                  placeholder:
+                                    "Cari dokter, klinik, rumah sakit"
+                                }}
+                                formControlProps={{
+                                  fullWidth: true,
+                                  className: classes.formControl
+                                }}
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={3} md={3}>
+                              <CustomInput
+                                id="email"
+                                inputProps={{
+                                  placeholder: "Klinik"
+                                }}
+                                formControlProps={{
+                                  fullWidth: true,
+                                  className: classes.formControl
+                                }}
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={3} md={3}>
+                              <CustomInput
+                                id="password"
+                                inputProps={{
+                                  placeholder: "Rumah sakit"
+                                  // type: "password"
+                                }}
+                                formControlProps={{
+                                  fullWidth: true,
+                                  className: classes.formControl
+                                }}
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={3} md={3}>
+                              <Button
+                                block
+                                color="twitter"
+                                className={classes.button}
+                              >
+                                Cari
+                              </Button>
+                            </GridItem>
+                          </GridContainer>
+                        </form>
+                      </CardBody>
+                    </Card>
+                  </GridItem>
+                </GridContainer>
+              </div>
+            </Parallax>
+            <div className={classNames(classes.main, classes.mainRaised)}>
+              <div className={classes.container}>
+                <BagianDeskripsi />
+                <BagianFitur />
+              </div>
             </div>
-          </Parallax>
-          <div className={classNames(classes.main, classes.mainRaised)}>
-            <div className={classes.container}>
-              <SectionProduct />
-            </div>
-          </div>
 
-          {/* <Footer
+            {/* <Footer
             content={
               <div>
                 <div className={classes.left}>
@@ -314,138 +322,148 @@ class LandingPage extends Component {
               </div>
             }
           /> */}
-          <Footer
-            theme="white"
-            content={
-              <div
-                className={classNames(classes.pullCenter, classes.copyRight)}
-              >
-                Copyright &copy; {1900 + new Date().getYear()}{" "}
-                <a href="https://www.tokopedia.com/people/9552568?nref=acchead">
-                  Meru RW
-                </a>{" "}
-                All Rights Reserved.
-              </div>
-            }
-          >
-            <div className={classes.footer}>
-              <GridContainer>
-                <GridItem xs={12} sm={2} md={2}>
-                  <h5>About Us</h5>
-                  <ul className={classes.linksVertical}>
-                    <li>
-                      <a href="#meru">Blog</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Tentang</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Karir</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Hubungi Kami</a>
-                    </li>
-                  </ul>
-                </GridItem>
-                <GridItem xs={12} sm={2} md={2}>
-                  <h5>Untuk Pasien</h5>
-                  <ul className={classes.linksVertical}>
-                    <li>
-                      <a href="#meru">Cara Mendaftar</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Info Kesehatan</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Buat Janji</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Tanya Dokter</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Catatan Medis</a>
-                    </li>
-                    <li>
-                      <a href="#meru">Riwayat Transaksi</a>
-                    </li>
-                  </ul>
-                </GridItem>
-                <GridItem xs={12} sm={4} md={4}>
-                  <h5>Sosial Media</h5>
-                  <div className={classes.socialFeed}>
-                    <div>
-                      <i className="fab fa-twitter" />
-                      <p>Bagaimana cara efisien untuk menghubungi dokter.</p>
-                    </div>
-                    <div>
-                      <i className="fab fa-twitter" />
-                      <p>haidok adalah aplikasi terbaik masa kini.</p>
-                    </div>
-                    <div>
-                      <i className="fab fa-facebook-square" />
-                      <p>
-                        25 juta orang telah menggunakan haidok di seluruh dunia.
-                      </p>
-                    </div>
-                  </div>
-                </GridItem>
-                <GridItem xs={12} sm={4} md={4}>
-                  <h5>Ikuti kami di</h5>
-                  <ul className={classes.socialButtons}>
-                    <li>
-                      <Button
-                        justIcon
-                        simple
-                        href="https://github.com/meru28"
-                        target="_blank"
-                        color="github"
-                      >
-                        <i className="fab fa-github" />
-                      </Button>
-                    </li>
-                    <li>
-                      <Button
-                        justIcon
-                        simple
-                        href="https://www.facebook.com/meruw.ruw"
-                        color="facebook"
-                      >
+            <Footer
+              theme="white"
+              content={
+                <div
+                  className={classNames(classes.pullCenter, classes.copyRight)}
+                >
+                  Copyright &copy; {1900 + new Date().getYear()}{" "}
+                  <a href="https://www.tokopedia.com/people/9552568?nref=acchead">
+                    Meru RW
+                  </a>{" "}
+                  All Rights Reserved.
+                </div>
+              }
+            >
+              <div className={classes.footer}>
+                <GridContainer>
+                  <GridItem xs={12} sm={2} md={2}>
+                    <h5>Tentang Kami</h5>
+                    <ul className={classes.linksVertical}>
+                      <li>
+                        <a href="https://www.tokopedia.com/people/9552568?nref=acchead">
+                          Blog
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.tokopedia.com/people/9552568?nref=acchead">
+                          Tentang
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.tokopedia.com/people/9552568?nref=acchead">
+                          Karir
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://www.tokopedia.com/people/9552568?nref=acchead">
+                          Hubungi Kami
+                        </a>
+                      </li>
+                    </ul>
+                  </GridItem>
+                  <GridItem xs={12} sm={2} md={2}>
+                    <h5>Untuk Pasien</h5>
+                    <ul className={classes.linksVertical}>
+                      <li>
+                        <a href="#meru">Cara Mendaftar</a>
+                      </li>
+                      <li>
+                        <a href="#meru">Info Kesehatan</a>
+                      </li>
+                      <li>
+                        <a href="#meru">Buat Janji</a>
+                      </li>
+                      <li>
+                        <a href="#meru">Tanya Dokter</a>
+                      </li>
+                      <li>
+                        <a href="#meru">Catatan Medis</a>
+                      </li>
+                      <li>
+                        <a href="#meru">Riwayat Transaksi</a>
+                      </li>
+                    </ul>
+                  </GridItem>
+                  <GridItem xs={12} sm={4} md={4}>
+                    <h5>Sosial Media</h5>
+                    <div className={classes.socialFeed}>
+                      <div>
+                        <i className="fab fa-twitter" />
+                        <p>Bagaimana cara efisien untuk menghubungi dokter.</p>
+                      </div>
+                      <div>
+                        <i className="fab fa-twitter" />
+                        <p>haidok adalah aplikasi terbaik masa kini.</p>
+                      </div>
+                      <div>
                         <i className="fab fa-facebook-square" />
-                      </Button>
-                    </li>
-                    <li>
-                      <Button justIcon simple href="#meru" color="dribbble">
-                        <i className="fab fa-dribbble" />
-                      </Button>
-                    </li>
-                    <li>
-                      <Button justIcon simple href="#meru" color="google">
-                        <i className="fab fa-google-plus-g" />
-                      </Button>
-                    </li>
-                    <li>
-                      <Button
-                        justIcon
-                        simple
-                        href="https://www.instagram.com/meru_rendy/"
-                        target="_blank"
-                        color="instagram"
-                      >
-                        <i className="fab fa-instagram" />
-                      </Button>
-                    </li>
-                  </ul>
-                  <h5>Jumlah pengguna</h5>
-                  <h4>
-                    14.521 <small>Pasien</small>
-                  </h4>
-                  <h4>
-                    1.423.183 <small>Transaksi</small>
-                  </h4>
-                </GridItem>
-              </GridContainer>
-            </div>
-          </Footer>
+                        <p>
+                          25 juta orang telah menggunakan haidok di seluruh
+                          dunia.
+                        </p>
+                      </div>
+                    </div>
+                  </GridItem>
+                  <GridItem xs={12} sm={4} md={4}>
+                    <h5>Ikuti kami di</h5>
+                    <ul className={classes.socialButtons}>
+                      <li>
+                        <Button
+                          justIcon
+                          simple
+                          href="https://github.com/meru28"
+                          target="_blank"
+                          color="github"
+                        >
+                          <i className="fab fa-github" />
+                        </Button>
+                      </li>
+                      <li>
+                        <Button
+                          justIcon
+                          simple
+                          href="https://www.facebook.com/meruw.ruw"
+                          color="facebook"
+                        >
+                          <i className="fab fa-facebook-square" />
+                        </Button>
+                      </li>
+                      <li>
+                        <Button justIcon simple href="#meru" color="dribbble">
+                          <i className="fab fa-dribbble" />
+                        </Button>
+                      </li>
+                      <li>
+                        <Button justIcon simple href="#meru" color="google">
+                          <i className="fab fa-google-plus-g" />
+                        </Button>
+                      </li>
+                      <li>
+                        <Button
+                          justIcon
+                          simple
+                          href="https://www.instagram.com/meru_rendy/"
+                          target="_blank"
+                          color="instagram"
+                        >
+                          <i className="fab fa-instagram" />
+                        </Button>
+                      </li>
+                    </ul>
+                    <h5>Jumlah pengguna</h5>
+                    <h4>
+                      14.521 <small>Pasien</small>
+                    </h4>
+                    <h4>
+                      1.423.183 <small>Transaksi</small>
+                    </h4>
+                  </GridItem>
+                </GridContainer>
+              </div>
+            </Footer>
+          </div>
         </div>
       </div>
     );

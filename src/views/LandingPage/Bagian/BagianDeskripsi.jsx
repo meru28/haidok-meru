@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 import ChatBubble from "@material-ui/icons/ChatBubble";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
+import Healing from "@material-ui/icons/Healing";
 import NearMe from "@material-ui/icons/NearMe";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -12,7 +12,7 @@ import InfoArea from "components/InfoArea/InfoArea.jsx";
 
 import productStyle from "assets/jss/rs-kit/views/bagianLandingPage/productStyle.jsx";
 
-class SectionProduct extends Component {
+class BagianDeskripsi extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -42,8 +42,8 @@ class SectionProduct extends Component {
               <InfoArea
                 title="Dokter Terverifikasi"
                 description="Dokter-dokter kami adalah dokter yang hebat, jago merawat pasien dengan senang hati."
-                icon={VerifiedUser}
-                iconColor="success"
+                icon={Healing}
+                iconColor="primary"
                 vertical
               />
             </GridItem>
@@ -63,4 +63,4 @@ class SectionProduct extends Component {
   }
 }
 
-export default withStyles(productStyle)(SectionProduct);
+export default withStyles(productStyle)(BagianDeskripsi);

@@ -91,7 +91,7 @@ class Header extends Component {
           <Drawer
             variant="temporary"
             anchor={"right"}
-            onMouseOver={this.state.mobileOpen}
+            open={this.state.mobileOpen}
             classes={{
               paper: classes.drawerPaper
             }}

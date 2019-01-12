@@ -1,5 +1,6 @@
 import headerLinksStyle from "assets/jss/rs-kit/components/headerLinksStyle.jsx";
 import footeerStyle from "assets/jss/rs-kit/views/bagianKomponen/footeerStyle.jsx";
+import headerStyle from "assets/jss/rs-kit/views/bagianBagian/headerStyle.jsx";
 import {
   container,
   title,
@@ -13,6 +14,7 @@ import { list } from "postcss";
 const landingPageStyle = theme => ({
   ...headerLinksStyle(theme),
   ...footeerStyle(theme),
+
   container: {
     color: "#FFFFFF",
     ...container,

@@ -12,8 +12,8 @@ const blink = keyframes`
 `;
 
 const CursorSpan = styled.span`
-  font-weight: 100;
-  color: black;
+  font-weight: 700;
+  color: blue;
   font-size: 1em;
   padding-left: 2px;
   animation: ${blink} 1s step-end infinite;
