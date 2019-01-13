@@ -278,7 +278,6 @@ class LandingPage extends Component {
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
                 <BagianDeskripsi />
-                //<BagianFitur />
               </div>
             </div>
 
