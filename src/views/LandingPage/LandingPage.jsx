@@ -183,7 +183,7 @@ class LandingPage extends Component {
                         <h1 className={classes.title}>
                           Kesehatan Anda prioritas kami
                           <Backspace count={14} delay={750} />
-                          {"juga uang buat kami"}
+                          {"uang buat kami"}
                         </h1>
                       </Typing>
                       {/* {this.state.showFeatures && (
@@ -278,7 +278,7 @@ class LandingPage extends Component {
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
                 <BagianDeskripsi />
-                <BagianFitur />
+                {/* <BagianFitur /> */}
               </div>
             </div>
 
