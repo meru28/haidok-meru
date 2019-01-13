@@ -162,7 +162,7 @@ class LandingPage extends Component {
                   <GridItem
                     xs={12}
                     sm={12}
-                    md={8}
+                    md={12}
                     className={classNames(
                       classes.mlAuto,
                       classes.mrAuto,
@@ -278,7 +278,10 @@ class LandingPage extends Component {
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
                 <BagianDeskripsi />
+<<<<<<< HEAD
                 {/* <BagianFitur /> */}
+=======
+>>>>>>> d9ea5a69131e0ca90174ccea3abf33940d417046
               </div>
             </div>
 
