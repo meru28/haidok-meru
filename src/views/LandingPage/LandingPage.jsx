@@ -22,6 +22,7 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 // bagian dalam halaman ini
 import BagianDeskripsi from "./Bagian/BagianDeskripsi.jsx";
 import BagianFitur from "./Bagian/BagianFitur.jsx";
+import Modal from "components/Modal/Modal.jsx";
 
 import Typing, {
   Backspace,
@@ -31,13 +32,15 @@ import Typing, {
 
 //jsx styling
 import landingPageStyle from "assets/jss/rs-kit/views/landingPageStyle.jsx";
+const API_KEY = "AIzaSyCWpybRRncq5SBB1g0KbgtOZxCHQEc63Kw";
 
 const dasboardRoutes = [];
 
 class LandingPage extends Component {
   state = {
     showFeatures: false,
-    hover: false
+    nama: "Meru",
+    place: null
   };
 
   showFeatures = () => {
@@ -69,7 +72,7 @@ class LandingPage extends Component {
 
   render() {
     //deklarasi props classes dan ditampung di rest
-    const { classes, ...rest } = this.props;
+    const { to, staticContext, classes, ...rest } = this.props;
     return (
       <div className="cd-section" {...rest}>
         <div className={classes.sectionBlank} id="blanksection" />
@@ -84,7 +87,6 @@ class LandingPage extends Component {
                 <List className={classes.list + " " + classes.mlAuto}>
                   <ListItem className={classes.listItem}>
                     <Button
-                      href="javascript:void(0)"
                       className={classes.navLink}
                       // onClick={e => e.preventDefault()}
                       color="transparent"
@@ -124,17 +126,8 @@ class LandingPage extends Component {
                       Tanya Dukun
                     </Button>
                   </ListItem>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      href="#meru"
-                      className={classes.navLink}
-                      onClick={e => e.preventDefault()}
-                      color="success"
-                    >
-                      Masuk / Daftar
-                    </Button>
-                  </ListItem>
                 </List>
+                <Modal />
                 {/* <HeaderLinks dropdownHoverColor="info" /> */}
               </div>
             }
@@ -145,84 +138,61 @@ class LandingPage extends Component {
             }}
             {...rest}
           />
-          <div
-            className={classNames({
-              navbar_inner_overlay_active: this.state.hover,
-              navbar_inner_overlay: false
-            })}
-            // style={{
-            //   display: this.state.hover
-            //     ? { display: "navbar_inner_overlay_active" }
-            //     : { display: "navbar_inner_overlay" }
-            // }}
-          >
+          <div>
             <Parallax image={require("assets/img/bg-header.jpg")} filter="no">
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem
                     xs={12}
                     sm={12}
-                    md={12}
+                    md={8}
                     className={classNames(
                       classes.mlAuto,
                       classes.mrAuto,
                       classes.textCenter
                     )}
                   >
-                    <div>
-                      <Typing
-                        speed={50}
-                        startDelay={1000}
-                        className={classes.title}
-                        onFinishedTyping={this.showFeatures}
-                        onStartedTyping={() => console.log("started typing")}
-                        // onBeforeType={text => console.log("onBeforeType", text)}
-                        // onAfterType={text => console.log("onAfterType", text)}
-                      >
-                        <Delay ms={1000} />
-                        <h1 className={classes.title}>
-                          Kesehatan Anda prioritas kami
-                          <Backspace count={14} delay={750} />
-                          {"uang buat kami"}
-                        </h1>
-                      </Typing>
-                      {/* {this.state.showFeatures && (
-                        <Typing loop speed={3}>
-                          <Delay ms={300} /> */}
-                      <h4>
-                        <span>
-                          Cari, buat janji dengan dokter, tes diagnostik, dan
-                          layanan medis dari layar Anda
-                          {/* <Reset count={1} delay={750} />
-                          atau Ingin pesan obat dan panggil ambulans?
-                          <Reset delay={2000} /> */}
-                        </span>
-                      </h4>
-                      {/* </Typing>
-                      )} */}
-                    </div>
+                    <Typing
+                      speed={50}
+                      startDelay={1000}
+                      className={classes.title}
+                      onFinishedTyping={this.showFeatures}
+                      onStartedTyping={() => console.log("started typing")}
+                    >
+                      <Delay ms={1000} />
+                      <h2 className={classes.title}>
+                        Selamat datang di haidok, {this.state.nama}
+                        <Backspace count={30} delay={750} />
+                        {"Semoga Anda sehat selalu"}
+                      </h2>
+                    </Typing>
 
-                    {/* <h4>
-                    Cari dan buat janji dengan dokter, tes diagnostik, dan
-                    layanan medis dapat diraih dengan mudah
-                  </h4> */}
-                    {/* <Button
-                    color="danger"
-                    size="lg"
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <i className="fas fa-play" />
-                    Watch video
-                  </Button> */}
+                    <h4>
+                      <span>
+                        Cari, buat janji dengan dokter, tes diagnostik, dan
+                        layanan medis dari layar Anda
+                      </span>
+                    </h4>
+
                     <Card raised className={classes.card}>
                       <CardBody formHorizontal>
                         <form>
                           <GridContainer>
-                            <GridItem xs={12} sm={3} md={3}>
+                            <GridItem xs={10} sm={3} md={3}>
                               <CustomInput
                                 id="name"
+                                onChange={e => {
+                                  this.setState({ placeholder: e });
+                                }}
+                                formControlProps={{
+                                  fullWidth: true,
+                                  className: classes.formControl
+                                }}
+                              />
+                            </GridItem>
+                            <GridItem xs={12} sm={7} md={7}>
+                              <CustomInput
+                                id="email"
                                 inputProps={{
                                   placeholder:
                                     "Cari dokter, klinik, rumah sakit"
@@ -233,32 +203,8 @@ class LandingPage extends Component {
                                 }}
                               />
                             </GridItem>
-                            <GridItem xs={12} sm={3} md={3}>
-                              <CustomInput
-                                id="email"
-                                inputProps={{
-                                  placeholder: "Klinik"
-                                }}
-                                formControlProps={{
-                                  fullWidth: true,
-                                  className: classes.formControl
-                                }}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={3} md={3}>
-                              <CustomInput
-                                id="password"
-                                inputProps={{
-                                  placeholder: "Rumah sakit"
-                                  // type: "password"
-                                }}
-                                formControlProps={{
-                                  fullWidth: true,
-                                  className: classes.formControl
-                                }}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={3} md={3}>
+
+                            <GridItem xs={12} sm={2} md={2}>
                               <Button
                                 block
                                 color="twitter"
@@ -278,6 +224,7 @@ class LandingPage extends Component {
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
                 <BagianDeskripsi />
+                {/* <BagianFitur /> */}
               </div>
             </div>
 
@@ -427,16 +374,6 @@ class LandingPage extends Component {
                           color="facebook"
                         >
                           <i className="fab fa-facebook-square" />
-                        </Button>
-                      </li>
-                      <li>
-                        <Button justIcon simple href="#meru" color="dribbble">
-                          <i className="fab fa-dribbble" />
-                        </Button>
-                      </li>
-                      <li>
-                        <Button justIcon simple href="#meru" color="google">
-                          <i className="fab fa-google-plus-g" />
                         </Button>
                       </li>
                       <li>

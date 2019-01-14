@@ -50,7 +50,7 @@ class BagianDeskripsi extends Component {
             <GridItem xs={12} sm={4} md={4}>
               <InfoArea
                 title="Navigasi"
-                description="Haidok membatu Anda untuk menemukan dokter, rumah sakit, klinik, dan apotek terdekat di sekeliling Anda."
+                description="Haidok membantu Anda untuk menemukan dokter, rumah sakit, klinik, dan apotek terdekat di sekeliling Anda."
                 icon={NearMe}
                 iconColor="danger"
                 vertical

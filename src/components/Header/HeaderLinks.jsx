@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Icon from "@material-ui/core/Icon";
-import ListIcon from "@material-ui/icons/List";
+
+import Modal from "components/Modal/Modal.jsx";
 
 // @material-ui/icons
 import {
@@ -88,8 +88,9 @@ function HeaderLinks({ ...props }) {
   const { classes, dropdownHoverColor } = props;
   return (
     <List className={classes.list + " " + classes.mlAuto}>
-      {/* <ListItem className={classes.listItem}>
-        <CustomDropdown
+      <ListItem className={classes.listItem}>
+        {/* <Modal /> */}
+        {/* <CustomDropdown
           noLiPadding
           navDropdown
           hoverColor={dropdownHoverColor}
@@ -116,8 +117,8 @@ function HeaderLinks({ ...props }) {
               Documentation
             </a>
           ]}
-        />
-      </ListItem> */}
+        /> */}
+      </ListItem>
       {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
@@ -189,7 +190,7 @@ function HeaderLinks({ ...props }) {
           ]}
         />
       </ListItem> */}
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           navDropdown
@@ -239,7 +240,7 @@ function HeaderLinks({ ...props }) {
             </Link>
           ]}
         />
-      </ListItem>
+      </ListItem> */}
       {/* <ListItem className={classes.listItem}>
           <Button
             href="https://www.creative-tim.com/product/material-kit-pro-react"

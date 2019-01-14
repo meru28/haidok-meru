@@ -5,8 +5,10 @@
 import { mlAuto } from "assets/jss/rs-kit.jsx";
 
 import tooltip from "assets/jss/rs-kit/tooltipsStyle.jsx";
+import modalStyle from "assets/jss/rs-kit/modalStyle.jsx";
 
 const headerLinksStyle = theme => ({
+  ...modalStyle(theme),
   list: {
     [theme.breakpoints.up("md")]: {
       WebkitBoxAlign: "center",

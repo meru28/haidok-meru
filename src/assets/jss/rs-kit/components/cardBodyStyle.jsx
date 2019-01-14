@@ -1,11 +1,11 @@
 const cardBodyStyle = {
   cardBody: {
-    padding: "0.9375rem 1.875rem",
+    // padding: "0.9375rem 1.875rem",
     flex: "1 1 auto",
     WebkitBoxFlex: "1"
   },
   cardBodyBackground: {
-    position: "relative",
+    position: "absolute",
     zIndex: "2",
     minHeight: "280px",
     paddingTop: "40px",
