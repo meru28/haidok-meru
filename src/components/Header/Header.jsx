@@ -136,7 +136,7 @@ Header.propTypes = {
   absolute: PropTypes.bool,
   //function rubahWarnaHeader akan menyebabkan header berubah warna dari
   //this.props.color ke changeColorOnScroll.color
-  //ketika window.pageYOffset lebih tinggi atau sama dengan
+  //ketika window.pageYOffset lebih tinggi sama dengan
   //changeColorOnScroll.height dan ketika lebih kecil dari
   //changeColorOnScroll.height maka akan kembali this.props.color (transparent)
   changeColorOnScroll: PropTypes.shape({

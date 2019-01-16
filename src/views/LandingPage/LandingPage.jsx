@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import compose from "recompose/compose";
 //nodejs Libraty utk gabungin objek classes
 import classNames from "classnames";
 // @material-ui/core komponen
@@ -22,7 +24,7 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 // bagian dalam halaman ini
 import BagianDeskripsi from "./Bagian/BagianDeskripsi.jsx";
 import BagianFitur from "./Bagian/BagianFitur.jsx";
-import Modal from "components/Modal/Modal.jsx";
+import LoginModal from "components/Modal/LoginModal.jsx";
 
 import Typing, {
   Backspace,
@@ -76,6 +78,7 @@ class LandingPage extends Component {
     return (
       <div className="cd-section" {...rest}>
         <div className={classes.sectionBlank} id="blanksection" />
+        {/* HEADER MULAI */}
         <div>
           <Header
             color="transparent"
@@ -127,7 +130,7 @@ class LandingPage extends Component {
                     </Button>
                   </ListItem>
                 </List>
-                <Modal />
+                <LoginModal />
                 {/* <HeaderLinks dropdownHoverColor="info" /> */}
               </div>
             }
@@ -138,97 +141,107 @@ class LandingPage extends Component {
             }}
             {...rest}
           />
-          <div>
-            <Parallax image={require("assets/img/bg-header.jpg")} filter="no">
-              <div className={classes.container}>
-                <GridContainer>
-                  <GridItem
-                    xs={12}
-                    sm={12}
-                    md={8}
-                    className={classNames(
-                      classes.mlAuto,
-                      classes.mrAuto,
-                      classes.textCenter
-                    )}
-                  >
-                    <Typing
-                      speed={50}
-                      startDelay={1000}
-                      className={classes.title}
-                      onFinishedTyping={this.showFeatures}
-                      onStartedTyping={() => console.log("started typing")}
+          <div className={classes.main}>
+            <div className={classes.pageHeader}>
+              <Parallax image={require("assets/img/bg-header.jpg")} filter="no">
+                <div className={classes.conatinerHeader2}>
+                  <GridContainer>
+                    <GridItem
+                      xs={12}
+                      sm={8}
+                      md={8}
+                      className={classNames(
+                        classes.mlAuto,
+                        classes.mrAuto,
+                        classes.textCenter
+                      )}
                     >
-                      <Delay ms={1000} />
+                      {/* <Typing
+                        speed={50}
+                        startDelay={1000}
+                        className={classes.title}
+                        onFinishedTyping={this.showFeatures}
+                        onStartedTyping={() => console.log("started typing")}
+                      >
+                        <Delay ms={1000} /> */}
                       <h2 className={classes.title}>
-                        Selamat datang di haidok, {this.state.nama}
-                        <Backspace count={30} delay={750} />
-                        {"Semoga Anda sehat selalu"}
+                        Selamat datang di haidok,{" "}
+                        {this.props.username.toUpperCase()}
+                        {/* <Backspace count={30} delay={750} />
+                        {"Semoga Anda sehat selalu"} */}
                       </h2>
-                    </Typing>
-
-                    <h4>
-                      <span>
+                      {/* </Typing> */}
+                      <h4>
                         Cari, buat janji dengan dokter, tes diagnostik, dan
                         layanan medis dari layar Anda
-                      </span>
-                    </h4>
-
-                    <Card raised className={classes.card}>
-                      <CardBody formHorizontal>
-                        <form>
-                          <GridContainer>
-                            <GridItem xs={10} sm={3} md={3}>
-                              <CustomInput
-                                id="name"
-                                onChange={e => {
-                                  this.setState({ placeholder: e });
-                                }}
-                                formControlProps={{
-                                  fullWidth: true,
-                                  className: classes.formControl
-                                }}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={7} md={7}>
-                              <CustomInput
-                                id="email"
-                                inputProps={{
-                                  placeholder:
-                                    "Cari dokter, klinik, rumah sakit"
-                                }}
-                                formControlProps={{
-                                  fullWidth: true,
-                                  className: classes.formControl
-                                }}
-                              />
-                            </GridItem>
-
-                            <GridItem xs={12} sm={2} md={2}>
-                              <Button
-                                block
-                                color="twitter"
-                                className={classes.button}
-                              >
-                                Cari
-                              </Button>
-                            </GridItem>
-                          </GridContainer>
-                        </form>
-                      </CardBody>
-                    </Card>
-                  </GridItem>
-                </GridContainer>
-              </div>
-            </Parallax>
-            <div className={classNames(classes.main, classes.mainRaised)}>
-              <div className={classes.container}>
-                <BagianDeskripsi />
-                {/* <BagianFitur /> */}
-              </div>
+                      </h4>
+                    </GridItem>
+                    <GridItem
+                      xs={12}
+                      sm={10}
+                      md={10}
+                      className={classNames(classes.mlAuto, classes.mrAuto)}
+                    >
+                      <Card raised className={classes.card}>
+                        <CardBody formHorizontal>
+                          <form>
+                            <GridContainer>
+                              <GridItem xs={10} sm={4} md={4}>
+                                <CustomInput
+                                  id="name"
+                                  inputProps={{
+                                    placeholder:
+                                      "Cari dokter, klinik, rumah sakit"
+                                  }}
+                                  formControlProps={{
+                                    fullWidth: true,
+                                    className: classes.formControl
+                                  }}
+                                />
+                              </GridItem>
+                              <GridItem xs={12} sm={5} md={5}>
+                                <CustomInput
+                                  id="email"
+                                  inputProps={{
+                                    placeholder:
+                                      "Cari dokter, klinik, rumah sakit"
+                                  }}
+                                  formControlProps={{
+                                    fullWidth: true,
+                                    className: classes.formControl
+                                  }}
+                                />
+                              </GridItem>
+                              <GridItem xs={12} sm={3} md={3}>
+                                <Button
+                                  block
+                                  color="twitter"
+                                  className={classes.button}
+                                >
+                                  Cari
+                                </Button>
+                              </GridItem>
+                            </GridContainer>
+                          </form>
+                        </CardBody>
+                      </Card>
+                    </GridItem>
+                  </GridContainer>
+                </div>
+              </Parallax>
             </div>
+          </div>
+          {/* HEADER BERAKHIR */}
 
-            {/* <Footer
+          {/* CONTENT MULAI COY */}
+          <div className={classNames(classes.main, classes.mainRaised)}>
+            <div className={classes.container}>
+              <BagianDeskripsi />
+              {/* <BagianFitur /> */}
+            </div>
+          </div>
+          {/* CONTENT BERAKHIR */}
+          {/* <Footer
             content={
               <div>
                 <div className={classes.left}>
@@ -268,6 +281,9 @@ class LandingPage extends Component {
               </div>
             }
           /> */}
+
+          {/* FOOTER MULAI COY */}
+          <div>
             <Footer
               theme="white"
               content={
@@ -400,10 +416,23 @@ class LandingPage extends Component {
               </div>
             </Footer>
           </div>
+          {/* FOOTER BERAKHIR */}
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(landingPageStyle)(LandingPage);
+const mapStateToProps = state => {
+  return { username: state.auth.username };
+};
+
+export default compose(
+  withStyles(landingPageStyle, {
+    name: "LandingPage"
+  }),
+  connect(
+    mapStateToProps,
+    {}
+  )
+)(LandingPage);

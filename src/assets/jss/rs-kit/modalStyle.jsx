@@ -157,7 +157,7 @@ const modalStyle = theme => ({
     margin: "0"
   },
   socialLine: {
-    marginTop: "1rem",
+    marginTop: "-1rem",
     textAlign: "center",
     padding: "0"
   },
@@ -182,6 +182,7 @@ const modalStyle = theme => ({
     marginTop: "-40px",
     padding: "20px 0",
     width: "100%",
+    height: "120px",
     marginBottom: "15px"
   }
 });

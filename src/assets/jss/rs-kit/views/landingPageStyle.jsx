@@ -79,8 +79,30 @@ const landingPageStyle = theme => ({
   textCenter: {
     textAlign: "center"
   },
+  card: {
+    marginTop: "60px"
+  },
   mlAuto,
-  mrAuto
+  mrAuto,
+  conatinerHeader2: {
+    ...container,
+    zIndex: "2",
+    position: "relative",
+    "& h1, & h4, & h6": {
+      color: "#FFFFFF"
+    }
+  },
+  formControl: {
+    margin: "0",
+    padding: "8px 0 0 0"
+  },
+  iframeContainer: {
+    "& > iframe": {
+      width: "100%",
+      boxShadow:
+        "0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
+    }
+  }
 });
 
 export default landingPageStyle;
