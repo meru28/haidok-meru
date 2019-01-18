@@ -55,6 +55,6 @@ var loginYok = (dispatch, username, password) => {
     })
     .catch(err => {
       console.log(err);
-      dispatch({ type: LOGIN_SYSTEM_ERROR, payload: "Cek Koneksi Internet" });
+      dispatch({ type: LOGIN_SYSTEM_ERROR, payload: "System Error" });
     });
 };

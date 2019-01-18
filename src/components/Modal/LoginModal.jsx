@@ -69,11 +69,11 @@ class LoginModal extends Component {
     console.log(this.props.error);
   };
 
-  // renderError = () => {
-  //   if (this.props.error.length > 0) {
-  //     return <Button>{this.props.error}</Button>;
-  //   }
-  // };
+  renderError = () => {
+    if (this.props.error.length > 0) {
+      return <Button>{this.props.error}</Button>;
+    }
+  };
 
   render() {
     const { classes } = this.props;
@@ -201,7 +201,7 @@ class LoginModal extends Component {
                               onChange: this.handleChange
                             }}
                           />
-                          {/* {this.renderError()} */}
+                          {this.renderError()}
                           <div
                             className={`${classes.description} ${
                               classes.textCenter
