@@ -71,7 +71,7 @@ class LoginModal extends Component {
 
   renderError = () => {
     if (this.props.error.length > 0) {
-      return <Button>{this.props.error}</Button>;
+      return <p style={{ color: "red" }}>{this.props.error}</p>;
     }
   };
 
@@ -86,7 +86,7 @@ class LoginModal extends Component {
                 <Button
                   className={classes.navLink}
                   onClick={() => this.handleClickOpen("loginModal")}
-                  color="secondary"
+                  color="transparent"
                 >
                   Masuk
                 </Button>
@@ -126,7 +126,7 @@ class LoginModal extends Component {
                           {" "}
                           <Close className={classes.modalClose} />
                         </Button>
-                        <h5 className={classes.cardTitleWhite}>Log in</h5>
+                        <h5 className={classes.cardTitleWhite}>Masuk</h5>
                         <div className={classes.socialLine}>
                           <Button
                             justIcon
@@ -213,7 +213,7 @@ class LoginModal extends Component {
                               size="lg"
                               type="submit"
                             >
-                              Login
+                              Masuk
                             </Button>
                           </div>
                         </CardBody>
@@ -225,14 +225,9 @@ class LoginModal extends Component {
                       }`}
                     >
                       <p>Belum punya akun?</p>
-                      <Button
-                        color="success"
-                        simple
-                        size="lg"
-                        onClick={() => this.handleClickOpen("signupModal")}
-                      >
+                      <Link to="/" style={{ color: "green" }}>
                         Daftar
-                      </Button>
+                      </Link>
                     </DialogActions>
                   </Card>
                 </Dialog>

@@ -125,7 +125,6 @@ const modalStyle = theme => ({
       paddingTop: "0"
     },
     "& $modalFooter": {
-      paddingBottom: "0",
       paddingTop: "0"
     }
   },
@@ -184,6 +183,46 @@ const modalStyle = theme => ({
     width: "100%",
     height: "120px",
     marginBottom: "15px"
+  },
+  navLink: {
+    color: "inherit",
+    border: "1px solid white",
+    position: "relative",
+    padding: "0.9375rem",
+    fontWeight: "400",
+    fontSize: "12px",
+    textTransform: "none",
+    lineHeight: "20px",
+    textDecoration: "none",
+    margin: "0px",
+    display: "inline-flex",
+    "&:hover,&:focus": {
+      color: "inherit",
+      background: "rgba(200, 200, 200, 0.2)"
+    },
+    "& .fab,& .far,& .fal,& .fas,& .material-icons": {
+      position: "relative",
+      top: "2px",
+      marginTop: "-4px",
+      marginRight: "4px",
+      marginBottom: "0px",
+      fontSize: "1.25rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "calc(100% - 30px)",
+      marginLeft: "15px",
+      marginBottom: "8px",
+      marginTop: "8px",
+      textAlign: "left",
+      "& > span:first-child": {
+        justifyContent: "flex-start"
+      }
+    },
+    "& svg": {
+      marginRight: "3px",
+      width: "20px",
+      height: "20px"
+    }
   }
 });
 

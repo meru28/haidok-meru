@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import compose from "recompose/compose";
 //nodejs Libraty utk gabungin objek classes
 import classNames from "classnames";
@@ -25,6 +26,7 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 import BagianDeskripsi from "./Bagian/BagianDeskripsi.jsx";
 import BagianFitur from "./Bagian/BagianFitur.jsx";
 import LoginModal from "components/Modal/LoginModal.jsx";
+import SignUpPage from "../SignUpPage/SignUpPage.jsx";
 
 import Typing, {
   Backspace,
@@ -129,8 +131,16 @@ class LandingPage extends Component {
                       Tanya Dukun
                     </Button>
                   </ListItem>
+                  <ListItem className={classes.listItem}>
+                    <Button className={classes.navLink} color="success">
+                      <Link to="/signup-page" style={{ color: "white" }}>
+                        Daftar
+                      </Link>
+                    </Button>
+                  </ListItem>
                 </List>
                 <LoginModal />
+                {/* <SignUpPage /> */}
                 {/* <HeaderLinks dropdownHoverColor="info" /> */}
               </div>
             }
