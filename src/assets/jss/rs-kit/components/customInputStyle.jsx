@@ -1,5 +1,5 @@
 import {
-  primaryColor,
+  infoColor,
   dangerColor,
   successColor,
   defaultFont
@@ -17,7 +17,7 @@ const customInputStyle = {
       borderBottomWidth: "1px !important"
     },
     "&:after": {
-      borderBottomColor: primaryColor
+      borderBottomColor: successColor
     }
   },
   underlineError: {
@@ -27,7 +27,7 @@ const customInputStyle = {
   },
   underlineSuccess: {
     "&:after": {
-      borderBottomColor: successColor
+      borderBottomColor: infoColor
     }
   },
   labelRoot: {
