@@ -128,26 +128,19 @@ class LoginModal extends Component {
                         </Button>
                         <h5 className={classes.cardTitleWhite}>Masuk</h5>
                         <div className={classes.socialLine}>
-                          <Button
+                        <Button
                             justIcon
                             link
                             className={classes.socialLineButton}
                           >
-                            <i className="fab fa-facebook-square" />
+                            <i className="fab fa-google" />
                           </Button>
                           <Button
                             justIcon
                             link
                             className={classes.socialLineButton}
                           >
-                            <i className="fab fa-twitter" />
-                          </Button>
-                          <Button
-                            justIcon
-                            link
-                            className={classes.socialLineButton}
-                          >
-                            <i className="fab fa-google-plus-g" />
+                            <i className="fab fa-facebook" />
                           </Button>
                         </div>
                       </CardHeader>
