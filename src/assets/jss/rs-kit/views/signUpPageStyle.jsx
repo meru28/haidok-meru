@@ -1,10 +1,13 @@
 import { container, description, cardTitle } from "assets/jss/rs-kit.jsx";
+import customCheckboxRadioSwitchStyle from "assets/jss/rs-kit/customCheckboxRadioSwitchStyle.jsx";
 
 const signupPageStyle = theme => ({
   description,
   cardTitle: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    textDecoration: "none",
+    textAlign: "center !important",
+    marginBottom: "0.75rem"
   },
   container: {
     ...container,
@@ -13,6 +16,7 @@ const signupPageStyle = theme => ({
       paddingBottom: "100px"
     }
   },
+  ...customCheckboxRadioSwitchStyle,
   pageHeader: {
     color: "#fff",
     border: "0",
@@ -41,6 +45,16 @@ const signupPageStyle = theme => ({
       content: '""'
     }
   },
+  inputAdornment: {
+    marginRight: "18px",
+    position: "relative"
+  },
+  inputAdornmentIcon: {
+    color: "#495057"
+  },
+  form: {
+    margin: "0"
+  },
   infoArea: {
     padding: " 0px 0px 5px !important"
   },
@@ -48,8 +62,9 @@ const signupPageStyle = theme => ({
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
-    marginBottom: "-30px",
-    padding: "10px 0px"
+    marginTop: "10px",
+    marginBottom: "10px",
+    padding: "40px 0px"
   },
   textCenter: {
     textAlign: "center"
