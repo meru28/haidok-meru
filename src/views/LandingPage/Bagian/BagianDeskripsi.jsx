@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 import ChatBubble from "@material-ui/icons/ChatBubble";
-import Healing from "@material-ui/icons/Healing";
+import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import NearMe from "@material-ui/icons/NearMe";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -19,7 +19,7 @@ class BagianDeskripsi extends Component {
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={8} md={8}>
-            <h2 className={classes.title}>haidok menjamin kesehatan Anda</h2>
+            <h2 className={classes.title}>Haidok menjamin kesehatan Anda</h2>
             <h5 className={classes.description}>
               Temukan dokter, rumah sakit, klinik, apotek terdekat dan buat
               janji dalam hitungan detik, kamipun dapat membantu menemukan
@@ -42,8 +42,8 @@ class BagianDeskripsi extends Component {
               <InfoArea
                 title="Dokter Terverifikasi"
                 description="Dokter-dokter kami adalah dokter yang hebat, jago merawat pasien dengan senang hati."
-                icon={Healing}
-                iconColor="primary"
+                icon={VerifiedUser}
+                iconColor="success"
                 vertical
               />
             </GridItem>
