@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 //@material ui komponen
 import withStyles from "@material-ui/core/styles/withStyles";
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -108,7 +109,7 @@ class SignUpPage extends Component {
                   &copy; {1900 + new Date().getYear()} , made with{" "}
                   <Favorite className={classes.icon} /> by{" "}
                   <a href="https://web.facebook.com/meruw.ruw" target="blank">
-                    Unto Clubs
+                    Unto Clubs Team
                   </a>{" "}
                   for a better life.
                 </div>

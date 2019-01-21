@@ -2,22 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import compose from "recompose/compose";
+import titleCase from "title-case";
 //nodejs Libraty utk gabungin objek classes
 import classNames from "classnames";
 // @material-ui/core komponen
 import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
 // core components
-import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-import HeaderLinks from "components/Header/HeaderLinks";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
@@ -25,8 +22,6 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 // bagian dalam halaman ini
 import BagianDeskripsi from "./Bagian/BagianDeskripsi.jsx";
 import BagianFitur from "./Bagian/BagianFitur.jsx";
-import LoginModal from "components/Modal/LoginModal.jsx";
-import SignUpPage from "../SignUpPage/SignUpPage.jsx";
 
 import Typing, {
   Backspace,
@@ -36,14 +31,13 @@ import Typing, {
 
 //jsx styling
 import landingPageStyle from "assets/jss/rs-kit/views/landingPageStyle.jsx";
+import HeaderTampil from "components/Header/HeaderTampil.jsx";
 const API_KEY = "AIzaSyCWpybRRncq5SBB1g0KbgtOZxCHQEc63Kw";
-
-const dasboardRoutes = [];
 
 class LandingPage extends Component {
   state = {
     showFeatures: false,
-    nama: "Meru",
+    nama: null,
     place: null
   };
 
@@ -60,20 +54,6 @@ class LandingPage extends Component {
     // document.removeEventListener("mouseover", this.mouseOut);
   };
 
-  mouseOver = () => {
-    this.setState({ hover: !this.state.hover });
-    // document.body.style.display = "none";
-    // const ganti = document.getElementsByClassName(
-    //   "classes.navbar_inner_overlay_active"[0]
-    // );
-    console.log("hover true");
-  };
-
-  mouseOut = () => {
-    this.setState({ hover: false });
-    document.body.style.backgroundColor = "#F3F3F3";
-  };
-
   render() {
     //deklarasi props classes dan ditampung di rest
     const { to, staticContext, classes, ...rest } = this.props;
@@ -82,74 +62,7 @@ class LandingPage extends Component {
         <div className={classes.sectionBlank} id="blanksection" />
         {/* HEADER MULAI */}
         <div>
-          <Header
-            color="transparent"
-            routes={dasboardRoutes}
-            namaBrand="haidok"
-            links={
-              //ambil style dari classname collapse dari file headerlinks style
-              <div className={classes.collapse}>
-                <List className={classes.list + " " + classes.mlAuto}>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      className={classes.navLink}
-                      // onClick={e => e.preventDefault()}
-                      color="transparent"
-                      onClick={this.mouseOver}
-                      // onMouseOut={console.log("hover out")}
-                    >
-                      Info Kesehatan
-                    </Button>
-                  </ListItem>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      href="#meru"
-                      className={classes.navLink}
-                      onClick={e => e.preventDefault()}
-                      color="transparent"
-                    >
-                      Chat Dokter
-                    </Button>
-                  </ListItem>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      href="#meru"
-                      className={classes.navLink}
-                      onClick={e => e.preventDefault()}
-                      color="transparent"
-                    >
-                      Catatan Medis
-                    </Button>
-                  </ListItem>
-                  <ListItem className={classes.listItem}>
-                    <Button
-                      href="#meru"
-                      className={classes.navLink}
-                      onClick={e => e.preventDefault()}
-                      color="transparent"
-                    >
-                      Tanya Dukun
-                    </Button>
-                  </ListItem>
-                  <ListItem className={classes.listItem}>
-                    <Button className={classes.navLink} color="success">
-                      <Link to="/signup-page" style={{ color: "white" }}>
-                        Daftar
-                      </Link>
-                    </Button>
-                  </ListItem>
-                </List>
-                <LoginModal />
-                {/* <HeaderLinks dropdownHoverColor="info" /> */}
-              </div>
-            }
-            fixed
-            changeColorOnScroll={{
-              height: 300,
-              color: "white"
-            }}
-            {...rest}
-          />
+          <HeaderTampil />
           <div className={classes.main}>
             <div className={classes.pageHeader}>
               <Parallax image={require("assets/img/bg-header.jpg")} filter="no">
@@ -157,8 +70,8 @@ class LandingPage extends Component {
                   <GridContainer>
                     <GridItem
                       xs={12}
-                      sm={8}
-                      md={8}
+                      sm={10}
+                      md={10}
                       className={classNames(
                         classes.mlAuto,
                         classes.mrAuto,
@@ -173,12 +86,12 @@ class LandingPage extends Component {
                         onStartedTyping={() => console.log("started typing")}
                       >
                         <Delay ms={1000} /> */}
-                      <h2 className={classes.title}>
+                      <h1 className={classes.title}>
                         Selamat datang di haidok,{" "}
-                        {this.props.username.toUpperCase()}
+                        {titleCase(this.props.username)}
                         {/* <Backspace count={30} delay={750} />
                         {"Semoga Anda sehat selalu"} */}
-                      </h2>
+                      </h1>
                       {/* </Typing> */}
                       <h4>
                         Cari, buat janji dengan dokter, tes diagnostik, dan

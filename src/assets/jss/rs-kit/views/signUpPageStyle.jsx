@@ -28,7 +28,7 @@ const signupPageStyle = theme => ({
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(31,89,172,.60),rgba(70,98,200,.45))"
+        "linear-gradient(60deg,rgba(31,89,172,.02),rgba(.05,100,100,.45))"
     },
     "&:before,&:after": {
       position: "absolute",

@@ -225,7 +225,7 @@ class LoginModal extends Component {
                       }`}
                     >
                       <p>Belum punya akun?</p>
-                      <Link to="/" style={{ color: "green" }}>
+                      <Link to="/signup-page" style={{ color: "green" }}>
                         Daftar
                       </Link>
                     </DialogActions>
