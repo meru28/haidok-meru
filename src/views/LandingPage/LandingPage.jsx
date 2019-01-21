@@ -140,7 +140,7 @@ class LandingPage extends Component {
                   </ListItem>
                 </List>
                 <LoginModal />
-                <HeaderLinks dropdownHoverColor="info" />
+                {/* <HeaderLinks dropdownHoverColor="info" /> */}
               </div>
             }
             fixed
