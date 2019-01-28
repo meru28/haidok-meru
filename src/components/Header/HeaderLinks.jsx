@@ -69,6 +69,7 @@ class HeaderLinks extends Component {
       }
     };
     animateScroll();
+    console.log(this.props.username);
   };
   // var onClickSections = {};
 

@@ -23,7 +23,7 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 
 //material ui icon
 import Close from "@material-ui/icons/Close";
-import Face from "@material-ui/icons/Face";
+import Email from "@material-ui/icons/Email";
 import Icon from "@material-ui/core/Icon";
 
 import modalStyle from "assets/jss/rs-kit/modalStyle.jsx";
@@ -36,6 +36,7 @@ class LoginModal extends Component {
   state = {
     username: null,
     password: null,
+    email: null,
     loginModal: false
   };
 
@@ -59,14 +60,14 @@ class LoginModal extends Component {
   handleSubmit = event => {
     event.preventDefault();
     // Password: ${this.state.password}
-    var username = this.state.username;
+    var email = this.state.email;
     var password = this.state.password;
     // console.log(`
     // -- SUBMITTING --
     // ${username}
     // ${password}`);
-    this.props.onUserLogin({ username, password });
-    console.log(this.props.error);
+    this.props.onUserLogin({ email, password });
+    // console.log(this.props.email);
   };
 
   renderError = () => {
@@ -77,7 +78,7 @@ class LoginModal extends Component {
 
   render() {
     const { classes } = this.props;
-    if (this.props.username === "") {
+    if (this.props.email === "") {
       return (
         <div>
           <ListItem className={classes.listItem}>
@@ -90,7 +91,7 @@ class LoginModal extends Component {
                 >
                   Masuk
                 </Button>
-                {/* LOGIN MODAL START */}
+                {/* MULAI LOGIN MODAL */}
                 <Dialog
                   classes={{
                     root: classes.modalRoot,
@@ -126,9 +127,9 @@ class LoginModal extends Component {
                           {" "}
                           <Close className={classes.modalClose} />
                         </Button>
-                        <h5 className={classes.cardTitleWhite}>Masuk</h5>
+                        <h4 className={classes.cardTitleWhite}>Masuk</h4>
                         <div className={classes.socialLine}>
-                        <Button
+                          <Button
                             justIcon
                             link
                             className={classes.socialLineButton}
@@ -166,12 +167,12 @@ class LoginModal extends Component {
                             inputProps={{
                               startAdornment: (
                                 <InputAdornment position="start">
-                                  <Face className={classes.icon} />
+                                  <Email className={classes.icon} />
                                 </InputAdornment>
                               ),
-                              placeholder: "Username...",
-                              type: "text",
-                              name: "username",
+                              placeholder: "Email...",
+                              type: "email",
+                              name: "email",
                               onChange: this.handleChange
                             }}
                           />
@@ -235,7 +236,7 @@ class LoginModal extends Component {
 }
 
 const mapStateToProps = state => {
-  return { username: state.auth.username, error: state.auth.error };
+  return { email: state.auth.email, error: state.auth.error };
 };
 
 export default compose(

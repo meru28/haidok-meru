@@ -18,7 +18,7 @@ import {
 //   };
 // };
 
-export const onUserLogin = ({ username, password }) => {
+export const onUserLogin = ({ email, password }) => {
   //objek username & password terima 1 parameter lg, krn sdh di destructuring maka tidak perlu bikin variabel lg di bawah, isi text box dikirim ke funct ini.
   return dispatch => {
     //funct ini blm dipakai tp hny dibuat
@@ -26,16 +26,16 @@ export const onUserLogin = ({ username, password }) => {
     //return hny bisa
     dispatch({ type: AUTH_LOADING }); // tombol berubah jadi loading
     // setTimeout(() => loginYok(dispatch,username,password), 2000);
-    loginYok(dispatch, username, password); //penjelasannya adalah dispatch sebuah function, username & password adalah string, ini dipakai lagi utk
+    loginYok(dispatch, email, password); //penjelasannya adalah dispatch sebuah function, username & password adalah string, ini dipakai lagi utk
     //jd parameter di function loginYok
   };
 };
 
-var loginYok = (dispatch, username, password) => {
+var loginYok = (dispatch, email, password) => {
   axios
     .get("http://localhost:1997/users", {
       params: {
-        username,
+        email,
         password
       }
     })
@@ -44,12 +44,12 @@ var loginYok = (dispatch, username, password) => {
       if (res.data.length > 0) {
         dispatch({
           type: USER_LOGIN_SUCCESS,
-          payload: { username }
+          payload: { email, username: res.data.username }
         });
       } else {
         dispatch({
           type: USER_LOGIN_UNSUCCESS,
-          payload: "username atau passord Anda salah!"
+          payload: "Email atau passord Anda salah!"
         });
       }
     })

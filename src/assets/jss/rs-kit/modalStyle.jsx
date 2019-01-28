@@ -162,12 +162,13 @@ const modalStyle = theme => ({
   },
   socialLineButton: {
     "&, &:hover": { color: "#fff" },
-    marginLeft: "5px",
-    marginRight: "5px"
+    marginRight: "3px !important",
+    marginLeft: "3px !important"
   },
   cardTitleWhite: {
     ...cardTitle,
-    color: "#FFFFFF !important"
+    color: "#FFFFFF !important",
+    textAlign: "center"
   },
   textCenter: {
     textAlign: "center"
@@ -186,7 +187,7 @@ const modalStyle = theme => ({
   },
   navLink: {
     color: "inherit",
-    border: "1px solid white",
+    // border: "1px solid white",
     position: "relative",
     padding: "0.9375rem",
     fontWeight: "400",

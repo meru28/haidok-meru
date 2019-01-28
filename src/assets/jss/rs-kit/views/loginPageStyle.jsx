@@ -1,12 +1,11 @@
-import { container, cardTitle } from "assets/jss/rs-kit.jsx";
-import customCheckboxRadioSwitchStyle from "assets/jss/rs-kit/customCheckboxRadioSwitchStyle.jsx";
+import { container, description, cardTitle } from "assets/jss/rs-kit.jsx";
 
 const signUpPageStyle = theme => ({
+  description,
   cardTitle: {
     ...cardTitle,
-    textDecoration: "none",
-    textAlign: "center !important",
-    marginBottom: "0.75rem"
+    color: "#FFFFFF !important",
+    textAlign: "center"
   },
   container: {
     ...container,
@@ -15,22 +14,22 @@ const signUpPageStyle = theme => ({
       paddingBottom: "100px"
     }
   },
-  ...customCheckboxRadioSwitchStyle,
   pageHeader: {
-    minHeight: "100vh",
-    height: "auto",
-    display: "flex!important",
-    position: "relative",
-    margin: "0",
-    padding: "60px 0",
+    color: "#fff",
     border: "0",
+    height: "100%",
+    margin: "0",
+    display: "flex!important",
+    padding: "120px 0",
+    position: "relative",
+    minHeight: "100vh",
     alignItems: "center",
     "&:before": {
       background: "rgba(0, 0, 0, 0)"
     },
     "&:after": {
       background:
-        "linear-gradient(60deg,rgba(31,89,172,.100),rgba(.05,89,172,.99))"
+        "linear-gradient(60deg,rgba(.05,89,172,.99),rgba(31,89,172,.100))"
     },
     "&:before,&:after": {
       position: "absolute",
@@ -43,29 +42,27 @@ const signUpPageStyle = theme => ({
       content: '""'
     }
   },
-  inputAdornment: {
-    marginRight: "18px",
-    position: "relative"
-  },
-  inputAdornmentIcon: {
-    color: "#495057"
-  },
   form: {
     margin: "0"
   },
-  infoArea: {
-    padding: " 0px 0px 5px !important"
+  cardHeader: {
+    width: "auto",
+    textAlign: "center"
   },
-  cardSignup: {
-    borderRadius: "6px",
-    boxShadow:
-      "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
-    marginBottom: "10px",
-    marginTop: "10px",
-    padding: "3px 0px"
+  socialLine: {
+    marginTop: "1rem",
+    textAlign: "center",
+    padding: "0"
+  },
+  inputIconsColor: {
+    color: "#495057"
   },
   textCenter: {
     textAlign: "center"
+  },
+  iconButtons: {
+    marginRight: "3px !important",
+    marginLeft: "3px !important"
   },
   block: {
     color: "inherit",
@@ -116,17 +113,6 @@ const signUpPageStyle = theme => ({
     bottom: "0",
     color: "#fff",
     zIndex: "2"
-  },
-  socials: {
-    marginTop: "0",
-    position: "absolute",
-    width: "100%",
-    transform: "none",
-    left: "0",
-    top: "0",
-    height: "100%",
-    lineHeight: "41px",
-    fontSize: "20px"
   }
 });
 

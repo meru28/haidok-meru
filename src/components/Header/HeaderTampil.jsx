@@ -22,7 +22,7 @@ const dasboardRoutes = [];
 class HeaderTampil extends Component {
   render() {
     const { to, staticContext, classes, ...rest } = this.props;
-    if (this.props.username === "") {
+    if (this.props.email === "") {
       return (
         <div>
           <Header
@@ -74,6 +74,7 @@ class HeaderTampil extends Component {
                       Tanya Dukun
                     </Button>
                   </ListItem>
+                  <LoginModal />
                   <ListItem className={classes.listItem}>
                     <Button className={classes.navLink} color="success">
                       <Link to="/signup-page" style={{ color: "white" }}>
@@ -82,7 +83,6 @@ class HeaderTampil extends Component {
                     </Button>
                   </ListItem>
                 </List>
-                <LoginModal />
               </div>
             }
             fixed
@@ -162,7 +162,7 @@ class HeaderTampil extends Component {
 }
 
 const mapStateToProps = state => {
-  return { username: state.auth.username };
+  return { email: state.auth.email };
 };
 
 export default compose(

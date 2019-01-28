@@ -112,8 +112,7 @@ class LandingPage extends Component {
                                 <CustomInput
                                   id="name"
                                   inputProps={{
-                                    placeholder:
-                                      "Cari dokter, klinik, rumah sakit"
+                                    placeholder: "Cari lokasi"
                                   }}
                                   formControlProps={{
                                     fullWidth: true,
