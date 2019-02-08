@@ -72,7 +72,7 @@ RegularButton.propTypes = {
     "instagram",
     "transparent"
   ]),
-  size: PropTypes.oneOf(["sm", "lg"]),
+  size: PropTypes.oneOf(["sm", "lg", "md", "xl"]),
   simple: PropTypes.bool,
   round: PropTypes.bool,
   fullWidth: PropTypes.bool,

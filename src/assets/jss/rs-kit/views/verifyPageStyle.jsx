@@ -1,11 +1,15 @@
 import { container, description, cardTitle } from "assets/jss/rs-kit.jsx";
 
 const signUpPageStyle = theme => ({
-  description,
+  description: {
+    ...description,
+    paddingTop: "1.5px"
+  },
   cardTitle: {
     ...cardTitle,
-    color: "#FFFFFF !important",
-    textAlign: "center"
+    color: "#565c65 !important",
+    textAlign: "center",
+    height: "15px"
   },
   container: {
     ...container,
@@ -24,12 +28,9 @@ const signUpPageStyle = theme => ({
     position: "relative",
     minHeight: "100vh",
     alignItems: "center",
+    paddingTop: "10px",
     "&:before": {
       background: "rgba(0, 0, 0, 0)"
-    },
-    "&:after": {
-      background:
-        "linear-gradient(60deg,rgba(.05,89,172,.99),rgba(31,89,172,.100))"
     },
     "&:before,&:after": {
       position: "absolute",
@@ -45,15 +46,20 @@ const signUpPageStyle = theme => ({
   form: {
     margin: "0"
   },
+  cardVerify: {
+    borderRadius: "6px",
+    boxShadow:
+      "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
+    padding: "50px 60px",
+    paddingTop: "10px",
+    paddingBottom: "30px"
+  },
   cardHeader: {
     width: "auto",
     textAlign: "center"
   },
-  cardLogin: {
-    borderRadius: "6px",
-    boxShadow:
-      "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
-    paddingBottom: "15px"
+  buton: {
+    marginTop: "1rem"
   },
   socialLine: {
     marginTop: "1rem",
@@ -111,14 +117,6 @@ const signUpPageStyle = theme => ({
     height: "18px",
     top: "3px",
     position: "relative"
-  },
-  footer: {
-    position: "absolute",
-    width: "100%",
-    background: "transparent",
-    bottom: "0",
-    color: "#fff",
-    zIndex: "2"
   }
 });
 

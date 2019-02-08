@@ -107,6 +107,25 @@ const headerStyle = theme => ({
       }
     }
   },
+  center: {
+    "&,& a": {
+      ...defaultFont,
+      alignItems: "center",
+      left: "0",
+      width: "100%",
+      position: "absolute",
+      lineHeight: "30px",
+      fontSize: "18px",
+      fontWeight: "bold",
+      textTransform: "none",
+      whiteSpace: "nowrap",
+      color: "inherit",
+      "&:hover,&:focus": {
+        color: "inherit",
+        background: "transparent"
+      }
+    }
+  },
   appResponsive: {
     margin: "20px 10px",
     marginTop: "0px"

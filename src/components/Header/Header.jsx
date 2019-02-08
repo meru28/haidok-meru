@@ -61,7 +61,15 @@ class Header extends Component {
   };
 
   render() {
-    const { classes, color, links, namaBrand, fixed, absolute } = this.props;
+    const {
+      classes,
+      color,
+      links,
+      namaBrand,
+      judulCenter,
+      fixed,
+      absolute
+    } = this.props;
     const appBarClasses = classNames({
       [classes.appBar]: true,
       [classes[color]]: color,
@@ -74,6 +82,7 @@ class Header extends Component {
           <Button className={classes.title}>
             <Link to="/">{namaBrand}</Link>
           </Button>
+          <Button className={classes.center}>{judulCenter}</Button>
           <Hidden smDown implementation="css" className={classes.hidden}>
             <div className={classes.collapse}>{links}</div>
           </Hidden>

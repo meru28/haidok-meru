@@ -415,17 +415,27 @@ const buttonStyle = {
   lg: {
     padding: "1.125rem 2.25rem",
     fontSize: "0.875rem",
+    textTransform: "none",
     lineHeight: "1.333333",
     borderRadius: "0.2rem"
   },
   sm: {
     padding: "0.40625rem 1.25rem",
     fontSize: "0.6875rem",
+    textTransform: "none",
     lineHeight: "1.5",
     borderRadius: "0.2rem"
   },
+  md: {
+    padding: "0.9rem 7.87rem",
+    fontSize: "0.875rem",
+    textTransform: "none",
+    lineHeight: "1.3",
+    borderRadius: "0.2rem"
+  },
   round: {
-    borderRadius: "30px"
+    borderRadius: "30px",
+    textTransform: "none"
   },
   block: {
     width: "100% !important"

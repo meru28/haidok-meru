@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import compose from "recompose/compose";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { onUserLogin } from "../../actions";
 //material-ui core
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -77,6 +78,7 @@ class LoginModal extends Component {
   };
 
   render() {
+    console.log("test");
     const { classes } = this.props;
     if (this.props.email === "") {
       return (
@@ -219,7 +221,7 @@ class LoginModal extends Component {
                       }`}
                     >
                       <p>Belum punya akun?</p>
-                      <Link to="/signup-page" style={{ color: "green" }}>
+                      <Link to="/daftar" style={{ color: "green" }}>
                         Daftar
                       </Link>
                     </DialogActions>
@@ -234,6 +236,8 @@ class LoginModal extends Component {
     return <Redirect to="/" />;
   }
 }
+
+LoginModal.propTypes = { onUserLogin: PropTypes.func.isRequired };
 
 const mapStateToProps = state => {
   return { email: state.auth.email, error: state.auth.error };

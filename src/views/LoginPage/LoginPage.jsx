@@ -50,7 +50,7 @@ class LoginPage extends Component {
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
-              <Card>
+              <Card className={classes.cardLogin}>
                 <form className={classes.form} onSubmit={this.handleSubmit}>
                   <CardHeader color="success" className={classes.CardHeader}>
                     <h4 className={classes.cardTitle}>Masuk</h4>
@@ -77,7 +77,7 @@ class LoginPage extends Component {
                   <p className={`${classes.description} ${classes.textCenter}`}>
                     Atau
                   </p>
-                  <CardBody className={classes.cardLoginBody}>
+                  <CardBody>
                     <CustomInput
                       id="first"
                       formControlProps={{
@@ -119,17 +119,16 @@ class LoginPage extends Component {
                   <div
                     className={`${classes.description} ${classes.textCenter}`}
                   >
-                    <Button color="success" simple size="lg" type="submit">
+                    <Button color="success" size="lg" type="submit">
                       Masuk
                     </Button>
+                    <p>
+                      Belum punya akun?{" "}
+                      <Link to="/daftar" style={{ color: "green" }}>
+                        Daftar
+                      </Link>
+                    </p>
                   </div>
-                  <br />
-                  <p className={classes.textCenter}>
-                    Belum punya akun?{" "}
-                    <Link to="/signup-page" style={{ color: "green" }}>
-                      Daftar
-                    </Link>
-                  </p>
                 </form>
               </Card>
             </GridItem>

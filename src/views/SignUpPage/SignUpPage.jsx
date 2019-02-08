@@ -210,7 +210,7 @@ class SignUpPage extends Component {
                         <br />
                         <p className={classes.textCenter}>
                           Sudah punya akun?{" "}
-                          <Link to="/login-page" style={{ color: "green" }}>
+                          <Link to="/masuk" style={{ color: "green" }}>
                             Masuk
                           </Link>
                         </p>

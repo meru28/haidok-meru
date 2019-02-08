@@ -77,7 +77,7 @@ class HeaderTampil extends Component {
                   <LoginModal />
                   <ListItem className={classes.listItem}>
                     <Button className={classes.navLink} color="success">
-                      <Link to="/signup-page" style={{ color: "white" }}>
+                      <Link to="/daftar" style={{ color: "white" }}>
                         Daftar
                       </Link>
                     </Button>
